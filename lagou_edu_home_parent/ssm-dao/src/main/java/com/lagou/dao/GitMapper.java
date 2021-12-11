@@ -6,4 +6,5 @@ package com.lagou.dao;
  * @Project_Name lagou_edu_home_parent
  */
 public interface GitMapper {
+    public void add();
 }
