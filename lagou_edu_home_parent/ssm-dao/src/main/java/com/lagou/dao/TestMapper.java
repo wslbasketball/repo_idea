@@ -15,6 +15,5 @@ public interface TestMapper {
      * 1.查询所有用户信息
      */
     public List<Test> findAllUser();
-    
     public List<Test> findAllUser2();
 }
