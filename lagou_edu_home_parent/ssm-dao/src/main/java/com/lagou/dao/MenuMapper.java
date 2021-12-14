@@ -1,6 +1,7 @@
 package com.lagou.dao;
 
 import com.lagou.domain.Menu;
+import com.lagou.domain.MenuVO;
 
 import java.util.List;
 
@@ -17,9 +18,9 @@ public interface MenuMapper {
     public List<Menu> findSubMenuListByPid(int pid);
 
     /**
-     * 2.查询所有菜单列表
+     * 2.分页查询所有菜单列表
      */
-    public List<Menu> findAllMenu();
+    public List<Menu> findAllMenuByPage(MenuVO menuVO);
 
     /**
      * 3.根据id回显菜单信息（修改操作）

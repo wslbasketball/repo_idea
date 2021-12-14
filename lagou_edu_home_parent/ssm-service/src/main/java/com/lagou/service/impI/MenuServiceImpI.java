@@ -1,7 +1,10 @@
 package com.lagou.service.impI;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.lagou.dao.MenuMapper;
 import com.lagou.domain.Menu;
+import com.lagou.domain.MenuVO;
 import com.lagou.service.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,11 +30,15 @@ public class MenuServiceImpI implements MenuService {
         return menuListByPid;
     }
 
-    //2.查询所有菜单列表
+    //2.分页查询所有菜单列表
     @Override
-    public List<Menu> findAllMenu() {
-        List<Menu> allMenu = menuMapper.findAllMenu();
-        return allMenu;
+    public PageInfo findAllMenuByPage(MenuVO menuVO) {
+
+        PageHelper.startPage(menuVO.getCurrentPage(),menuVO.getPageSize());
+        List<Menu> allMenuByPage = menuMapper.findAllMenuByPage(menuVO);
+
+        PageInfo<Menu> pageInfo = new PageInfo<>(allMenuByPage);
+        return pageInfo;
     }
 
     //3.根据id回显菜单信息（修改操作）

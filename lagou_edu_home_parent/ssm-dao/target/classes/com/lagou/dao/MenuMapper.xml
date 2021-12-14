@@ -28,8 +28,8 @@
         SELECT * FROM menu WHERE parent_id = #{id}
     </select>
 
-    <!-- 2.查询所有菜单列表 -->
-    <select id="findAllMenu" resultType="com.lagou.domain.Menu">
+    <!-- 2.分页查询所有菜单列表 -->
+    <select id="findAllMenuByPage" resultType="com.lagou.domain.Menu" parameterType="com.lagou.domain.MenuVO">
         select * from menu
     </select>
 

@@ -1,6 +1,8 @@
 package com.lagou.service;
 
+import com.github.pagehelper.PageInfo;
 import com.lagou.domain.Menu;
+import com.lagou.domain.MenuVO;
 
 import java.util.List;
 
@@ -17,9 +19,9 @@ public interface MenuService {
     public List<Menu> findSubMenuListByPid(int pid);
 
     /**
-     * 2.查询所有菜单列表
+     * 2.分页查询所有菜单列表
      */
-    public List<Menu> findAllMenu();
+    public PageInfo findAllMenuByPage(MenuVO menuVO);
 
     /**
      * 3.根据id回显菜单信息（修改操作）
